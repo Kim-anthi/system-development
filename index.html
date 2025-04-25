@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,18 +13,22 @@
       padding: 0;
       background-color: #f5f6f5; /* Light grey-green background */
     }
+
     h1, h2, h3 {
       color: #1a3c34; /* Dark green for headings */
     }
+
     a {
       text-decoration: none;
       color: inherit;
     }
+
     .container {
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
     }
+
     /* Navigation Bar */
     nav {
       background-color: #1a3c34; /* Dark green */
@@ -35,11 +40,13 @@
       z-index: 1000;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
+
     nav .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+
     nav h1 {
       font-size: 1.8rem;
       font-weight: 600;
@@ -47,21 +54,25 @@
       margin: 0;
       letter-spacing: 1px;
     }
+
     nav ul {
       list-style: none;
       display: flex;
       gap: 2rem;
       margin: 0;
     }
+
     nav ul li a {
       color: #e0f2e9; /* Light green for links */
       font-weight: 500;
       font-size: 1.1rem;
       transition: color 0.3s ease;
     }
+
     nav ul li a:hover {
       color: #76c893; /* Brighter green on hover */
     }
+
     /* Hero Section */
     .hero {
       background-image: url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
@@ -75,6 +86,7 @@
       text-align: center;
       position: relative;
     }
+
     .hero::before {
       content: '';
       position: absolute;
@@ -84,36 +96,43 @@
       height: 100%;
       background-color: rgba(26, 60, 52, 0.6); /* Dark green overlay */
     }
+
     .hero-content {
       position: relative;
       z-index: 1;
     }
+
     .hero h2 {
       font-size: 3rem;
       margin-bottom: 1.5rem;
       font-weight: 700;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
+
     .hero p {
       font-size: 1.3rem;
       font-weight: 300;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
+
     /* Sections */
     section {
       padding: 5rem 0;
     }
+
     section h2 {
       text-align: center;
       margin-bottom: 3rem;
       font-size: 2.2rem;
       font-weight: 600;
     }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
     }
+
     /* Updated Dashboard Section Styling */
     #dashboard .card {
       background-color: white;
@@ -124,9 +143,11 @@
       position: relative;
       transition: transform 0.2s;
     }
+
     #dashboard .card:hover {
       transform: translateY(-5px);
     }
+
     #dashboard .card::before {
       content: '';
       display: block;
@@ -135,57 +156,42 @@
       background-size: cover;
       margin-bottom: 1rem;
     }
+
     #dashboard .card:nth-child(1)::before {
       background-image: url('https://img.icons8.com/ios-filled/50/27ae60/camera.png');
     }
+
     #dashboard .card:nth-child(2)::before {
       background-image: url('https://img.icons8.com/ios-filled/50/27ae60/shield.png');
     }
+
     #dashboard .card:nth-child(3)::before {
       background-image: url('https://img.icons8.com/ios-filled/50/27ae60/line-chart.png');
     }
+
     #dashboard .card:nth-child(4)::before {
       background-image: url('https://img.icons8.com/ios-filled/50/27ae60/group.png');
     }
+
     #dashboard .card h3 {
       margin: 0.5rem 0;
       font-size: 1.2rem;
       font-weight: bold;
       color: #1a3c34;
     }
+
     #dashboard .card p {
       color: #666;
       font-size: 0.9rem;
       line-height: 1.4;
     }
+
     @media (min-width: 768px) {
       #dashboard .grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
-    /* Alerts Section */
-    .alert {
-      background-color: #e74c3c; /* Keeping red for alerts to stand out */
-      color: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-    .alert button {
-      background-color: #c0392b;
-      color: white;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .alert button:hover {
-      background-color: #a93226;
-    }
+
     /* Analytics and Community Sections */
     .card {
       background-color: white;
@@ -194,24 +200,29 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
     }
+
     .card h3 {
       margin-bottom: 1rem;
       color: #27ae60; /* Medium green for card headings */
       font-weight: 600;
     }
+
     .card p {
       color: #4a4a4a;
       font-size: 0.95rem;
       line-height: 1.5;
     }
+
     /* Community Section */
     .community {
       text-align: center;
     }
+
     .community button {
       background-color: #27ae60; /* Medium green */
       color: white;
@@ -223,9 +234,11 @@
       font-size: 1rem;
       transition: background-color 0.3s ease;
     }
+
     .community button:hover {
       background-color: #219a52; /* Slightly darker green */
     }
+
     /* Footer */
     footer {
       background-color: #1a3c34; /* Dark green */
@@ -234,8 +247,14 @@
       padding: 1.5rem 0;
       font-size: 0.9rem;
     }
+
+    /* Chart container */
+    .chart-container {
+      overflow-x: auto;
+    }
   </style>
 </head>
+
 <body>
   <nav>
     <div class="container">
@@ -279,7 +298,6 @@
       </div>
     </div>
   </section>
-
   <section id="alerts" style="background-color: #f5f6f5;">
     <div class="container">
       <h2>Threat Alerts</h2>
@@ -288,10 +306,18 @@
           <h3>Poaching Alert</h3>
           <p>Suspicious activity detected in Sector 4 at 14:35.</p>
         </div>
-        <button>Dispatch Rangers</button>
+        <div class="camera-feed-container">
+          <h2>Live Surveillance Camera Feed</h2>
+          <div id="cameraFeed">
+            <img src="https://i.pinimg.com/474x/54/47/0c/54470c87775bbaf721c4ea9bb6666217.jpg" alt="Camera Feed Mock" id="cameraFrame">
+          </div>
+          <button id="refreshFeed">Refresh Feed</button>
+        </div>
+        <button id="dispatchRangers">Dispatch Rangers</button>
       </div>
     </div>
   </section>
+  
 
   <section id="analytics">
     <div class="container">
@@ -306,6 +332,17 @@
           <p>Predictive models forecast environmental risks and habitat changes.</p>
         </div>
       </div>
+
+      <div class="grid">
+        <div class="card chart-container">
+          <h3>Population Trends</h3>
+          <canvas id="populationChart" width="400" height="200"></canvas>
+        </div>
+        <div class="card chart-container">
+          <h3>Threat Alerts</h3>
+          <canvas id="alertsChart" width="400" height="200"></canvas>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -313,27 +350,72 @@
     <div class="container community">
       <h2>Community Engagement</h2>
       <p>Local communities can report suspicious activities via our Chat Bot.</p>
-      <button>Talk to Us</button>
+      <button id="talkToUsBtn">Talk to Us</button>
+      
+<!-- Chatbot Widget -->
+<div id="chatbotWidget" style="display: none;">
+  <div id="chatbotMessages"></div>
+  
+  <!-- User Input -->
+  <input type="text" id="chatbotInput" placeholder="Ask me anything...">
+  
+  <!-- Send Message Button -->
+  <button id="sendMessage">Send</button>
+
+  <!-- Close Button -->
+  <button id="closeChatbox">X</button>
+</div>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 AI Wildlife Conservancy System. All rights reserved.</p>
+    <p>&copy; 2025 AI Wildlife Conservancy. All rights reserved.</p>
   </footer>
 
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        window.scrollTo({
-          top: targetElement.offsetTop - 60, // Adjust for fixed nav height
-          behavior: 'smooth'
-        });
-      });
+    //  population trend chart
+    var ctx1 = document.getElementById('populationChart').getContext('2d');
+    var populationChart = new Chart(ctx1, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        datasets: [{
+          label: 'Animal Population',
+          data: [1200, 1150, 1100, 1050, 1000, 950, 900],
+          borderColor: 'rgba(39, 174, 96, 1)',
+          fill: false
+        }]
+      }
+    });
+
+    // threat alert chart
+    var ctx2 = document.getElementById('alertsChart').getContext('2d');
+    var alertsChart = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['Poaching', 'Trespassing', 'Habitat Destruction'],
+        datasets: [{
+          label: 'Alert Frequency',
+          data: [8, 3, 5],
+          backgroundColor: 'rgba(231, 76, 60, 0.8)',
+        }]
+      }
     });
   </script>
+
+  
+   
+  </script>
+  <script src="chatbot.js"></script>
+  <link rel="stylesheet" href="chatbot.css">
+  <link rel="stylesheet" href="camera-feed.css">
+  <script src="camera-feed.js"></script>
+  <script src="./notifications.js"></script>
+  <link rel="stylesheet" href="notifications.css">
+
 </body>
+
 </html>
