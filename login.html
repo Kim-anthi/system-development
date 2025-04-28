@@ -3,74 +3,66 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ranger Login - AI Wildlife System</title>
   <link rel="stylesheet" href="login.css">
-  <!-- Font Awesome for the Eye Icon -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
-  <!-- Login Form -->
+
   <div class="login-container">
     <h1>Ranger Login</h1>
 
     <form id="login-form">
       <input type="text" id="username" placeholder="Username" required />
 
-      <div class="password-container">
+      <div style="position: relative;">
         <input type="password" id="password" placeholder="Password" required />
-        <!-- Eye Icon for toggling password visibility -->
-        <i id="toggle-password" class="fas fa-eye"></i>
+        <span id="togglePassword" 
+              style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+          👁️
+        </span>
       </div>
 
       <button type="submit">Login</button>
     </form>
-    <p id="error-msg" style="color:red;"></p>
+
+    <p id="login-error-msg" style="color: red;"></p>
+    <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
   </div>
 
   <script>
-    // Check if the user is already logged in
+    // If already logged in, go straight to dashboard
     if (localStorage.getItem('isLoggedIn') === 'true') {
-      // Redirect to dashboard if already logged in
       window.location.href = 'index.html';
     }
 
-    // Function to toggle password visibility
-    const togglePassword = document.getElementById('toggle-password');
-    const passwordField = document.getElementById('password');
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
 
-    togglePassword.addEventListener('click', function () {
-      // Toggle the input type between password and text
-      const type = passwordField.type === 'password' ? 'text' : 'password';
-      passwordField.type = type;
-      
-      // Toggle the eye icon between open and closed
-      this.classList.toggle('fa-eye-slash');
-    });
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
 
-    // Handle the login process
-    document.getElementById("login-form").addEventListener("submit", function (e) {
-      e.preventDefault(); // Prevent page reload on form submit
+      const savedUsername = localStorage.getItem('savedUsername');
+      const savedPassword = localStorage.getItem('savedPassword');
 
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-
-      // Hardcoded credentials for demo
-      const validUsername = "ranger";
-      const validPassword = "password123";
-
-      // Validate login
-      if (username === validUsername && password === validPassword) {
-        // Set login status and redirect to the dashboard
+      if (username === savedUsername && password === savedPassword) {
         localStorage.setItem('isLoggedIn', 'true');
-        window.location.href = 'index.html'; // Redirect to dashboard
+        window.location.href = 'index.html';
       } else {
-        // Invalid login attempt
-        document.getElementById("error-msg").textContent = "Invalid username or password!";
+        document.getElementById('login-error-msg').textContent = "Invalid username or password!";
       }
     });
+
+    // Eye toggle for Password
+    document.getElementById('togglePassword').addEventListener('click', function () {
+      const passwordField = document.getElementById('password');
+      const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordField.setAttribute('type', type);
+      this.textContent = type === 'password' ? '👁️' : '🙈';
+    });
   </script>
+
 </body>
 
 </html>
