@@ -184,13 +184,13 @@
       color: #666;
       font-size: 0.9rem;
       line-height: 1.4;
-    }
+    } 
 
     @media (min-width: 768px) {
       #dashboard .grid {
         grid-template-columns: repeat(2, 1fr);
       }
-    }
+    } 
 
     /* Analytics and Community Sections */
     .card {
@@ -199,7 +199,7 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+    } 
 
     .card:hover {
       transform: translateY(-5px);
@@ -210,18 +210,18 @@
       margin-bottom: 1rem;
       color: #27ae60; /* Medium green for card headings */
       font-weight: 600;
-    }
+    } 
 
     .card p {
       color: #4a4a4a;
       font-size: 0.95rem;
       line-height: 1.5;
-    }
+    } 
 
     /* Community Section */
     .community {
       text-align: center;
-    }
+    } 
 
     .community button {
       background-color: #27ae60; /* Medium green */
@@ -323,8 +323,11 @@
   
           <button id="refreshFeed">Refresh Feed</button>
         </div>
+        
+         
   
         <button id="dispatchRangers">Dispatch Rangers</button>
+
   
       </div>
   
@@ -461,6 +464,80 @@
       document.getElementById("threatText").textContent = randomMessage;
     });
   </script>
+  <script>
+    document.getElementById('dispatchRangers').addEventListener('click', function () {
+      showNotification('🚓 Dispatch Alert: Rangers have been dispatched to Sector 4!');
+    });
+  
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.className = "bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg mb-4 animate-slide-in";
+      notification.innerText = message;
+  
+      const container = document.getElementById('notification-container');
+      container.appendChild(notification);
+  
+      // Remove after 4 seconds
+      setTimeout(() => {
+        notification.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+        setTimeout(() => {
+          notification.remove();
+        }, 500);
+      }, 4000);
+    }
+  </script>
+  <!-- Notification -->
+<div id="notification-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
+<script>
+  document.getElementById('dispatchRangers').addEventListener('click', function () {
+    showNotification('🚓 Rangers are on their way to Sector 4!');
+  });
+
+  function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.innerText = message;
+
+    document.getElementById('notification-container').appendChild(notification);
+
+    // Auto-remove after 4 seconds
+    setTimeout(() => {
+      notification.style.opacity = '0';
+      setTimeout(() => {
+        notification.remove();
+      }, 500);
+    }, 4000);
+  }
+</script>
+<style>
+  .notification {
+    background-color: #28a745;
+    color: white;
+    padding: 16px 24px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    transition: opacity 0.5s ease;
+    animation: slideIn 0.5s ease forwards;
+  }
+  
+  /* Slide In Animation */
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  </style>
+  
+
+  
+  
   
   
    
