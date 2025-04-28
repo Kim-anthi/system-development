@@ -1,0 +1,206 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Comic Neue', cursive; /* Playful, colorful font */
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ce79); /* Rainbow gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Overlay for Splatter Effect */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/canvas.png') repeat; /* Canvas texture */
+    opacity: 0.15;
+    z-index: 0;
+}
+
+/* Login Container */
+.login-container {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0); /* Subtle white-to-gray gradient */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    border: 3px solid #ffcc00; /* Bright yellow border */
+    animation: popIn 0.5s ease-in-out;
+}
+
+/* Animation for Container */
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Heading */
+h1 {
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: #ff3366; /* Vibrant pink */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 2px solid #ff9966; /* Coral border */
+    border-radius: 8px;
+    font-size: 16px;
+    background: #fff3e6; /* Light peach background */
+    color: #333;
+    transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: #ff6699; /* Soft pink placeholder */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #33ccff; /* Bright cyan */
+    outline: none;
+    transform: scale(1.02);
+    box-shadow: 0 0 8px rgba(51, 204, 255, 0.5);
+}
+
+/* Button Styling */
+button {
+    background: linear-gradient(90deg, #ff3366, #ffcc00); /* Pink-to-yellow gradient */
+    color: #fff;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.4s ease;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 51, 102, 0.5);
+}
+
+/* Error Message Styling */
+#error-msg {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #ff0066; /* Bright magenta */
+    font-weight: bold;
+}
+
+/* Password Container */
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+#password {
+    width: 100%;
+    padding: 14px;
+    padding-right: 40px; /* Space for the eye icon */
+    margin: 12px 0;
+    border: 2px solid #ff9966; /* Coral border */
+    border-radius: 8px;
+    font-size: 16px;
+    background: #fff3e6; /* Light peach */
+    color: #333;
+    transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#password:focus {
+    border-color: #33ccff; /* Bright cyan */
+    outline: none;
+    transform: scale(1.02);
+    box-shadow: 0 0 8px rgba(51, 204, 255, 0.5);
+}
+
+/* Password Toggle Icon */
+#toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    cursor: pointer;
+    color: #ff6699; /* Soft pink */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+#toggle-password:hover {
+    color: #33ccff; /* Bright cyan */
+    transform: translateY(-50%) scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .login-container {
+        width: 90%;
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    #password {
+        padding: 12px;
+    }
+
+    #toggle-password {
+        font-size: 20px;
+        right: 12px;
+    }
+}

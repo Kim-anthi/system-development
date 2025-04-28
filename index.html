@@ -264,6 +264,8 @@
         <li><a href="#alerts">Alerts</a></li>
         <li><a href="#analytics">Analytics</a></li>
         <li><a href="#community">Community</a></li>
+        <button onclick="logout()">Logout</button>
+
       </ul>
     </div>
   </nav>
@@ -405,7 +407,19 @@
       }
     });
   </script>
+   <script>
+    // Check if the user is logged in
+    if (localStorage.getItem('isLoggedIn') !== 'true') {
+      // If not logged in, redirect to login page
+      window.location.href = 'login.html';
+    }
 
+    // Logout function to clear login status and redirect to login page
+    function logout() {
+      localStorage.setItem('isLoggedIn', 'false');
+      window.location.href = 'login.html'; // Redirect to login page
+    }
+  </script>
   
    
   </script>
