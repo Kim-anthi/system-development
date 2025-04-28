@@ -301,24 +301,37 @@
     </div>
   </section>
   <section id="alerts" style="background-color: #f5f6f5;">
+
     <div class="container">
+  
       <h2>Threat Alerts</h2>
+  
       <div class="alert">
+  
         <div>
           <h3>Poaching Alert</h3>
-          <p>Suspicious activity detected in Sector 4 at 14:35.</p>
+          <p id="threatText">Suspicious activity detected in Sector 4 at 14:35.</p>
         </div>
+  
         <div class="camera-feed-container">
           <h2>Live Surveillance Camera Feed</h2>
           <div id="cameraFeed">
-            <img src="https://i.pinimg.com/474x/54/47/0c/54470c87775bbaf721c4ea9bb6666217.jpg" alt="Camera Feed Mock" id="cameraFrame">
+            <img src="https://i.pinimg.com/474x/54/47/0c/54470c87775bbaf721c4ea9bb6666217.jpg" 
+     alt="Camera Feed Mock" id="cameraFrame">
+
           </div>
+  
           <button id="refreshFeed">Refresh Feed</button>
         </div>
+  
         <button id="dispatchRangers">Dispatch Rangers</button>
+  
       </div>
+  
     </div>
+  
   </section>
+  
   
 
   <section id="analytics">
@@ -420,6 +433,35 @@
       window.location.href = 'login.html'; // Redirect to login page
     }
   </script>
+  <script>
+    const images = [
+      "https://i.pinimg.com/474x/54/47/0c/54470c87775bbaf721c4ea9bb6666217.jpg",
+      "https://i.pinimg.com/474x/a9/7c/30/a97c30e95d85c486b94c77c0d20f39a7.jpg",
+      "https://i.pinimg.com/474x/fc/b9/ab/fcb9abffaf8f51a1442b6d87aa1db8d1.jpg",
+      "https://i.pinimg.com/474x/8e/61/77/8e617739d38d11b0646ec9e3b8596d4d.jpg"
+    ];
+  
+    const messages = [
+      "Unidentified movement detected in Sector 4.",
+      "Thermal anomaly spotted near waterhole.",
+      "Large animal detected moving rapidly.",
+      "Poacher footprints found during patrol.",
+      "Drone detected flying over restricted zone."
+    ];
+  
+    document.getElementById("refreshFeed").addEventListener("click", function() {
+      // Pick random image and message
+      const randomImage = images[Math.floor(Math.random() * images.length)];
+      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+  
+      // Update the camera image
+      document.getElementById("cameraFrame").src = randomImage;
+  
+      // Update the threat text
+      document.getElementById("threatText").textContent = randomMessage;
+    });
+  </script>
+  
   
    
   </script>
