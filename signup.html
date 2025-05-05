@@ -42,25 +42,30 @@
   </div>
 
   <script>
-    document.getElementById('signup-form').addEventListener('submit', function(e) {
+    document.getElementById('signup-form').addEventListener('submit', async e => {
       e.preventDefault();
+      const u = document.getElementById('new-username').value.trim();
+      const p = document.getElementById('new-password').value;
+      const c = document.getElementById('confirm-password').value;
 
-      const newUsername = document.getElementById('new-username').value;
-      const newPassword = document.getElementById('new-password').value;
-      const confirmPassword = document.getElementById('confirm-password').value;
-
-      if (newPassword !== confirmPassword) {
-        document.getElementById('signup-error-msg').textContent = "Passwords do not match!";
-        return;
+      if (p !== c) {
+        return document.getElementById('signup-error-msg').textContent = 'Passwords must match';
       }
 
-      // Save the new ranger's credentials into localStorage
-      localStorage.setItem('savedUsername', newUsername);
-      localStorage.setItem('savedPassword', newPassword);
+      const res = await fetch('api/signup.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: u, password: p })
+      });
 
-      // After successful signup, redirect to login page
-      alert('Signup successful! Please login.');
-      window.location.href = 'login.html';
+      const json = await res.json();
+
+      if (res.ok) {
+        alert(json.success);
+        location.href = 'login.html';
+      } else {
+        document.getElementById('signup-error-msg').textContent = json.error;
+      }
     });
 
     // Eye toggle for New Password
@@ -81,5 +86,4 @@
   </script>
 
 </body>
-
 </html>

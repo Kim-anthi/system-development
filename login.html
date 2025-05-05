@@ -32,25 +32,24 @@
   </div>
 
   <script>
-    // If already logged in, go straight to dashboard
-    if (localStorage.getItem('isLoggedIn') === 'true') {
-      window.location.href = 'index.html';
-    }
-
-    document.getElementById('login-form').addEventListener('submit', function(e) {
+    document.getElementById('login-form').addEventListener('submit', async e => {
       e.preventDefault();
+      const u = document.getElementById('username').value.trim();
+      const p = document.getElementById('password').value;
 
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
+      const res = await fetch('api/login.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ username: u, password: p })
+      });
 
-      const savedUsername = localStorage.getItem('savedUsername');
-      const savedPassword = localStorage.getItem('savedPassword');
+      const json = await res.json();
 
-      if (username === savedUsername && password === savedPassword) {
-        localStorage.setItem('isLoggedIn', 'true');
-        window.location.href = 'index.html';
+      if (res.ok) {
+        location.href = 'index.html'; // Redirect to dashboard
       } else {
-        document.getElementById('login-error-msg').textContent = "Invalid username or password!";
+        document.getElementById('login-error-msg').textContent = json.error;
       }
     });
 
